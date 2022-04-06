@@ -37,16 +37,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//get the store
 				let favorites = getStore().favorites;
-				const found = favorites.find((item)=> item == fav )
-				if(found){
+				const found = favorites.find((item) => item == fav)
+				if (found) {
 					favorites = favorites.filter((element) => element !== fav)
-				}else{
+				} else {
 
 					favorites.push(fav)
 				}
 				//reset the global store
 				setStore({ favorites: favorites });
-				
+
 			},
 
 
@@ -59,16 +59,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: delet });
 			},
 
-		  addToShopingList : (list) => {
-			  //get the store
+			addToShopingList: (list) => {
+				//get the store
 				const newList = getStore().shopingList;
 				console.log(newList);
 				newList.push(list)
-		
+
 				//reset the global store
 				setStore({ shopingList: newList });
-		  }
+			},
 
+			deleteList: (list) => {
+				var deleteList = getStore().shopingList;
+				let delet = deleteList.filter((element) => element !== list)
+				setStore({ shopingList: delet });
+			}
 		}
 	};
 };

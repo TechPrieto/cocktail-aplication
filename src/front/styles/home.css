@@ -1,142 +1,136 @@
-body{
-    background: #c4d8e2;
+body {
+  background: #c4d8e2;
 }
-.navbar{
-    background: #A350A3;
+.navbar {
+  background: #a350a3;
 }
-.logo{
-    text-decoration: none;
-    
+.logo {
+  text-decoration: none;
 }
-.logolinea{
-    font-size: 1.5rem;
+.logolinea {
+  font-size: 1.5rem;
 }
-.left{
-    color:#0F0C24
+.left {
+  color: #0f0c24;
 }
 
 .button {
-    outline: 0;
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 15px;
-    /* overflow: hidden; */
-    cursor: pointer;
-    border: 2px solid #C1436D;
-    background: #C1436D;
-    color: white;
-    font-weight: 400;
-    transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
-    border-radius: 10px;
+  outline: 0;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  /* overflow: hidden; */
+  cursor: pointer;
+  border: 2px solid #c1436d;
+  background: #c1436d;
+  color: white;
+  font-weight: 400;
+  transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
+  border-radius: 10px;
 }
 .button:hover {
-    background-color: #C1436D;
-    color: white;
-    box-shadow: 0 0 5px #C1436D,
-                0 0 20px rgb(255,0,119),
-                0 0 35px rgb(255,0,119),
-                0 0 50px rgb(255,0,119);
-    border-color: #C1436D;
+  background-color: #c1436d;
+  color: white;
+  box-shadow: 0 0 5px #c1436d, 0 0 20px rgb(255, 0, 119),
+    0 0 35px rgb(255, 0, 119), 0 0 50px rgb(255, 0, 119);
+  border-color: #c1436d;
 }
 
 .joshstyles {
-    border-color: #C1436D !important;
+  border-color: #c1436d !important;
 }
 .joshstyles2 {
-    border-color: #A350A3!important;
+  border-color: #a350a3 !important;
 }
 
 .my-button {
-    width: 150px;
-    height: 150px;
-    border: none;
-    border-radius: 100px;
-    outline: none;
-    background: #C1436D;
-    color: white; 
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  }
-  .my-button:hover {
-    background-color: #C1436D;
-    color: white;
-    box-shadow: 0 0 5px #C1436D,
-                0 0 15px rgb(255,0,119),
-                0 0 25px rgb(255,0,119),
-                0 0 40px rgb(255,0,119);
-    border-color: #C1436D;
-  }
-.empty:empty{
-    display: none;
+  width: 150px;
+  height: 150px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  background: #c1436d;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+.my-button:hover {
+  background-color: #c1436d;
+  color: white;
+  box-shadow: 0 0 5px #c1436d, 0 0 15px rgb(255, 0, 119),
+    0 0 25px rgb(255, 0, 119), 0 0 40px rgb(255, 0, 119);
+  border-color: #c1436d;
+}
+.empty:empty {
+  display: none;
 }
 
-.boxes{
-    margin: 20px;
-    background-color: rgb(255,0,119);
-    overflow: hidden;
-    height: 490px;
-    width: 300px;
-    border-radius: 15px;
-    box-shadow: 0px 12px 18px -6px rgba(235, 20, 181, 0.8);
-    align-items: center;
-    text-align: center;
+.boxes {
+  margin: 20px;
+  background-color: rgb(255, 0, 119);
+  overflow: hidden;
+  height: 490px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0px 12px 18px -6px rgba(235, 20, 181, 0.8);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border: 1px solid #c1436d;
+  color: white;
+}
+.boxBussines {
+  background-color: #a350a3;
+  transition: 0.9s;
+}
+.boxBussines:hover {
+  background-color: #dda0dd;
+  transition: 0.9s;
+  transform: scale(1.1);
+  box-shadow: #0f0c24;
+  margin-bottom: 125px;
+}
+.boxTodo {
+  height: 580px;
+  width: 400px;
+  background-color: rgb(198, 177, 198);
+}
+.labelTodo {
+  color: white;
+}
+@media screen and (min-width: 390px) {
+  .button {
     justify-content: center;
-    border: 1px solid #C1436D;
-    color: white;
- }
- .boxBussines {
-     background-color: #A350A3;
-     transition: 0.9s;
- }
- .boxBussines:hover {
-     background-color: #dda0dd;
-     transition: 0.9s;
-     transform: scale(1.1);
-    box-shadow: #0F0C24;
-    margin-bottom: 125px ;
- }
- .boxTodo{
-    height: 580px;
-    width: 400px;
-    background-color: rgb(198,177,198);
- }
-.labelTodo{
-    color: white;
+    align-items: center;
+  }
 }
- @media screen and (min-width: 390px) {
-    .button{
-        justify-content: center;
-        align-items: center;
-    }
-  }
 
-  .bussinesh2{
-      border-top: 1px solid pink;
-      margin: 10px;
-      padding: 5px;
-  }
+.bussinesh2 {
+  border-top: 1px solid pink;
+  margin: 10px;
+  padding: 5px;
+}
 
-  .line-through {
-    text-decoration: line-through;
+.line-through {
+  text-decoration: line-through;
 }
 
 .text-4xl {
-    font-size: 22px;
+  font-size: 22px;
 }
-
 
 /* CSS */
 .button-24 {
-  background: #A350A3;
-  border: 2px solid #A350A3;
+  background: #a350a3;
+  border: 2px solid #a350a3;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
   font-size: 16px;
   font-weight: 800;
   line-height: 16px;
@@ -156,62 +150,63 @@ body{
 .button-24:active {
   background-color: initial;
   background-position: 0 0;
-  color: #0F0C24;
-  border: 2px solid #0F0C24;
+  color: #0f0c24;
+  border: 2px solid #0f0c24;
 }
 
 .button-24:active {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .buttonList {
-    outline: 0;
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 15px;
-    /* overflow: hidden; */
-    cursor: pointer;
-    border: 2px solid #A350A3;
-    background: #A350A3;
-    color: white;
-    font-weight: 400;
-    transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
-    border-radius: 10px;
+  outline: 0;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  /* overflow: hidden; */
+  cursor: pointer;
+  border: 2px solid #a350a3;
+  background: #a350a3;
+  color: white;
+  font-weight: 400;
+  transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
+  border-radius: 10px;
 }
 .buttonList:hover {
-    background-color: #A350A3;
-    color: white;
-    box-shadow: 0 0 5px #A350A3,
-                0 0 20px rgb(237, 121, 217),
-                0 0 35px rgb(240, 151, 212),
-                0 0 50px rgb(215, 89, 237);
-    border-color: #A350A3;
+  background-color: #a350a3;
+  color: white;
+  box-shadow: 0 0 5px #a350a3, 0 0 20px rgb(237, 121, 217),
+    0 0 35px rgb(240, 151, 212), 0 0 50px rgb(215, 89, 237);
+  border-color: #a350a3;
 }
-.card{
-    transition: 0.9s;
-    background-color: #0F0C24;
-    color: white;
+.card {
+  transition: 0.9s;
+  background-color: #0f0c24;
+  color: white;
 }
-.card:hover{
-transform: scale(1.1);
-box-shadow: #0F0C24;
-margin-bottom: 125px ;
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: #0f0c24;
+  margin-bottom: 125px;
 }
-.link{
-    text-decoration: none;
-    
+.link {
+  text-decoration: none;
 }
-.card1{
-    background-color: #0F0C24;
-    color: white;
-    border-radius: 15px;
-    margin: auto;
+.card1 {
+  background-color: #0f0c24;
+  color: white;
+  border-radius: 15px;
+  margin: auto;
 }
-.fas fa-heart{
-    background:green ;
+.fas fa-heart {
+  background: green;
 }
-.borderShopping{
-    border: 1px solid #0F0C24 ;
-    height: auto;
+.borderShopping {
+  border: 4px solid #0f0c24;
+  height: auto;
+  color: #0f0c24;
+}
+h1 .title {
+  color: #0f0c24;
 }
