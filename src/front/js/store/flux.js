@@ -1,47 +1,74 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			recipe: [],
+			users: [],
+			loggId: [],
+			favorites: [],
+			shopingList: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+			// getData: (recipe)=>{
+			// 	fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=margarita `, {   
+			// 	})
+			// 		.then(response => {
+			// 			return response.json();
+			// 		})
+			// 		.then(data => {
+			// 			console.log(data.drinks)
+			// 			return setStore({ recipe: data.drinks})
+			// 		})
+			// 		.catch(err => {
+			// 			console.error(err);
+			// 		});
+			// }
 
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
+			registerUsers: (user) => {
+				const newUser = getStore().users;
+				newUser.push(user)
+				setStore({ users: newUser });
 			},
-			changeColor: (index, color) => {
+			LogInUsers: (userLogged) => {
+				const log = getStore().loggId;
+				log.push(userLogged)
+				setStore({ loggId: log });
+			},
+			addFav: (fav) => {
+
 				//get the store
-				const store = getStore();
+				let favorites = getStore().favorites;
+				const found = favorites.find((item)=> item == fav )
+				if(found){
+					favorites = favorites.filter((element) => element !== fav)
+				}else{
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
+					favorites.push(fav)
+				}
 				//reset the global store
-				setStore({ demo: demo });
-			}
+				setStore({ favorites: favorites });
+				
+			},
+
+
+
+
+
+			deleteFav: (fav) => {
+				var deleteFavo = getStore().favorites;
+				let delet = deleteFavo.filter((element) => element !== fav)
+				setStore({ favorites: delet });
+			},
+
+		  addToShopingList : (list) => {
+			  //get the store
+				const newList = getStore().shopingList;
+				console.log(newList);
+				newList.push(list)
+		
+				//reset the global store
+				setStore({ shopingList: newList });
+		  }
+
 		}
 	};
 };
