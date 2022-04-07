@@ -20,8 +20,8 @@ export const Navbar = () => {
 							<nav className="navbar m-2">
 								{store.loggId.email && <ul className="navbar-nav ">
 									<li className="nav-item dropdown">
-										<button
-											className="button nav-link dropdown-toggle"
+										<h6
+											className="nav-link dropdown-toggle"
 											href="#"
 											id="navbarDropdown"
 											role="button"
@@ -29,7 +29,7 @@ export const Navbar = () => {
 											aria-expanded="false"
 										>
 											favorites {store.favorites.length}
-										</button>
+										</h6>
 										<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 											{store.favorites.map((fav, i) => {
 												return (

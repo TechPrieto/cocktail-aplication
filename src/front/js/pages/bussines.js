@@ -9,8 +9,8 @@ import rigoImage13 from "../../img/conc.png";
 export const Bussines = ({ rec }) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
-  const getCourses= () => {
-    fetch("https://www.udemy.com/api-2.0/courses/?search=bartender",  {
+  const getCourses = () => {
+    fetch("https://www.udemy.com/api-2.0/courses/?search=bartender", {
       "method": "GET",
       "headers": {
         "Accept": "application/json, text/plain, */*",
@@ -19,7 +19,7 @@ export const Bussines = ({ rec }) => {
       }
     })
 
-      .then(res=>{
+      .then(res => {
         console.log(res)
         return res.json()
       })
@@ -34,34 +34,34 @@ export const Bussines = ({ rec }) => {
 
   useEffect(() => {
     getCourses();
-}, []);
+  }, []);
   return (
     <div className="container">
 
       <div>
-      <h1 className="text-center text-white">The secret formula for succes</h1>
+        <h1 className="text-center text-dark">The secret formula for succes</h1>
       </div>
       <div className="row container d-flex justify-content-evenly col-sm-12">
-    
-       <div className=" col-sm-12 boxes border rounded  joshstyles"> 
-       <img src={rigoImage13} style={{ width: '100px', height: 'auto' }} />
-       <h2 className="bussinesh2">Good Recipes</h2>
-         <p className="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-          <Link to="/contacts"><button className="button-24">ask for service</button></Link>
-       </div>
-       <div className="col-sm-12 boxes border rounded joshstyles ">
-       <img src={rigoImage12} style={{ width: '100px', height: 'auto' }} />
+
+        <div className=" boxes col-sm-12  border rounded ">
+          <img src={rigoImage13} style={{ width: '100px', height: 'auto' }} />
+          <h2 className="bussinesh2">Good Recipes</h2>
+          <p className="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+          <Link to="/contacts"><button className="button p-2">ask for service</button></Link>
+        </div>
+        <div className="col-sm-12 boxes border rounded ">
+          <img src={rigoImage12} style={{ width: '100px', height: 'auto' }} />
           <h2 className="bussinesh2">Concept</h2>
-         <p className="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-          <Link to="/contacts"><button className="button-24">ask for service</button></Link>
-       </div>
-       <div className="col-sm-12 boxes border rounded joshstyles" >
-       <img src={rigoImage11} style={{ width: '100px', height: 'auto' }} />
-       <h2 className="bussinesh2">Train Staff</h2>
-       <p className="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-         <Link to="/contacts"><button className="button-24">ask for service</button></Link>
-       </div>
-    </div>
+          <p className="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+          <Link to="/contacts"><button className="button p-2">ask for service</button></Link>
+        </div>
+        <div className="col-sm-12 boxes border rounded" >
+          <img src={rigoImage11} style={{ width: '100px', height: 'auto' }} />
+          <h2 className="bussinesh2">Train Staff</h2>
+          <p className="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+          <Link to="/contacts"><button className="button p-2">ask for service</button></Link>
+        </div>
+      </div>
     </div>
   );
 };

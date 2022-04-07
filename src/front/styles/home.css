@@ -68,17 +68,25 @@ body {
 
 .boxes {
   margin: 20px;
-  background-color: rgb(255, 0, 119);
+  background-color: #a350a3;
   overflow: hidden;
   height: 490px;
   width: 300px;
-  border-radius: 15px;
-  box-shadow: 0px 12px 18px -6px rgba(235, 20, 181, 0.8);
+  border-radius: 35px;
+  box-shadow: #0f0c24;
   align-items: center;
   text-align: center;
   justify-content: center;
   border: 1px solid #c1436d;
-  color: white;
+  color: #0f0c24;
+  transition: 0.9s;
+}
+.boxes:hover {
+  background-color: #dda0dd;
+  transition: 0.9s;
+  transform: scale(1.1);
+  box-shadow: #0f0c24;
+  margin-bottom: 125px;
 }
 .boxBussines {
   background-color: #a350a3;
@@ -201,6 +209,8 @@ body {
 }
 .icon {
   color: #c1436d;
+  font-size: 25px;
+  margin-top: 15px;
 }
 .borderShopping {
   border: 4px solid #0f0c24;
