@@ -40,7 +40,7 @@ def post_favorite():
     return jsonify(all_favorites), 200
 
 #deberia ser drink_id?
-@app.route('/favorite/<int:id>', methods=['DELETE'])
+@api.route('/favorite/<int:id>', methods=['DELETE'])
 def delete_favorite(id):
     favorite_id = Favorite.query.get(id)
     if favorite_id is None:
@@ -79,7 +79,7 @@ def post_ingredient():
     return jsonify(all_ingredients), 200
 
 @api.route('/shoppinglist', methods=['PUT'])
-def post_ingredient():
+def edit_ingredient():
 
     body = request.get_json()
 
