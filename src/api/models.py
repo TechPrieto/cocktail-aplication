@@ -6,9 +6,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    favorite_id = db.Column(db.String(80), db.ForeignKey('favorite.id'), unique=True, nullable=False, )
-    shoppinglist_id = db.Column(db.String(80), unique=True, nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+
     
 
     def __repr__(self):
@@ -18,39 +16,49 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            "favorite_id": self.favorite_id,
-            "shoppinglist_id": self.shoppinglist_id
             # do not serialize the password, its a security breach
         }
 
-class Favorites(db.Model):
+class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     drink_id = db.Column(db.String(120), unique=True, nullable=False)
-    user = relationship(User)
+    drink_name = db.Column(db.String(120), unique=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=False, nullable=False, )
+    user = db.relationship("User")
 
     def __repr__(self):
-        return f'<User {self.id}>'
+        return f'<Favorite {self.drink_name}>'
 
     def serialize(self):
         return {
             "id": self.id,
-            "title": self.title,
+            "drink_id": self.drink_id,
+            "user_id":  self.user_id,
+            "drink_name": self.drink_name,
             # "shoppinglist_id": self.shoppinglist_id
             # do not serialize the password, its a security breach
         }
 
-class   shoppinglist(db.Model):
+
+
+class   Ingredient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     drink_id = db.Column(db.String(120), unique=True, nullable=False)
-    user = relationship(User)
+    drink_name = db.Column(db.String(120), unique=False, nullable=False)
+    ingredient_name = db.Column(db.String(120), unique=False, nullable=False)
+    is_done = db.Column(db.Boolean(), unique=False, nullable=False)
 
     def __repr__(self):
-        return f'<User {self.id}>'
-
+        return f'<Ingredient {self.ingredient_name}>'
+    
     def serialize(self):
         return {
             "id": self.id,
-            "title": self.title,
+            "drink_id": self.drink_id,
+            "drink_name": self.drink_name,
+            "ingredient_name": self.ingredient_name,
+            "is_done": self.is_done,
+
             # "shoppinglist_id": self.shoppinglist_id
             # do not serialize the password, its a security breach
         }
