@@ -6,66 +6,10 @@ import { FullCards } from "./fullCards";
 import { Cards } from "./cards";
 
 export const RecipeBrowser = ({ data }) => {
-  const [recipe, setRecipe] = useState([]);
-  const [recipeInp, setRecipeInp] = useState([]);
-  const [nonAlcoholic, setNonAlcoholic] = useState([]);
-  const [alcoholic, setAlcoholic] = useState([]);
   const { store, actions } = useContext(Context);
   const params = useParams();
-
-  useEffect(() => {
-    fetchRes();
-  }, []);
-
-  useEffect(() => {
-    console.log(recipe);
-  }, [recipe]);
-
-  const fetchRes = async () => {
-    const res = await fetch(
-      `https://thecocktaildb.com/api/json/v1/1/search.php?s=${recipeInp}`
-    );
-    const data = await res.json();
-    setRecipeInp("");
-    setRecipe(data.drinks);
-    console.log(data.drinks);
-  };
-
-  const getCocktailDetails = async (cocktails) => {
-    let localRecipes = [];
-
-    for (let cocktail of cocktails) {
-      fetch(
-        `https://thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.idDrink}`
-      )
-        .then((data) => data.json())
-        .then((result) => {
-          console.log(result.drinks[0]);
-          localRecipes.push(result.drinks[0]);
-          console.log(localRecipes);
-        })
-        .catch((error) => console.error(error));
-    }
-    setRecipe(localRecipes);
-  };
-
-  const fetchNonAlcoholic = async () => {
-    const res = await fetch(
-      "https://thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
-    );
-    const data = await res.json();
-    getCocktailDetails(data.drinks);
-    setRecipe([...recipe]);
-  };
-
-  const fetchAlcoholic = async () => {
-    const res = await fetch(
-      "https://thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-    );
-    const data = await res.json();
-    setRecipe(data.drinks);
-    console.log(data.drinks);
-  };
+  const [show, setShow] = useState("recipes");
+  const [recipeInp, setRecipeInp] = useState([]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -97,7 +41,16 @@ export const RecipeBrowser = ({ data }) => {
                   <a
                     className="dropdown-item"
                     href="#"
-                    onClick={fetchNonAlcoholic}
+                    onClick={() => setShow("recipes")}
+                  >
+                    Suggested recipes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onClick={() => setShow("nonAlcoholic")}
                   >
                     Non alcoholic drinks
                   </a>
@@ -106,7 +59,7 @@ export const RecipeBrowser = ({ data }) => {
                   <a
                     className="dropdown-item"
                     href="#"
-                    onClick={fetchAlcoholic}
+                    onClick={() => setShow("alcoholic")}
                   >
                     Alcoholic drinks
                   </a>
@@ -125,10 +78,10 @@ export const RecipeBrowser = ({ data }) => {
             />
             <button
               className="button m-2"
-              type="button"
+              type="text"
               id="button-addon1"
               value=""
-              onClick={fetchRes}
+              onClick={() => actions.fetchRes(recipeInp)}
               style={{ borderRadius: "10px" }}
             >
               Search
@@ -138,16 +91,24 @@ export const RecipeBrowser = ({ data }) => {
       </div>
 
       <div className="container d-flex flex-wrap justify-content-center">
-        {recipe
-          ? recipe.map((rec, index) => {
+        {show == "recipes"
+          ? store.recipes.map((rec, index) => {
               return (
                 <div key={index}>
                   <Cards rec={rec} />
                 </div>
               );
             })
-          : nonAlcoholic
-          ? nonAlcoholic.map((rec, index) => {
+          : show == "nonAlcoholic"
+          ? store.nonAlcoholic.map((rec, index) => {
+              return (
+                <div key={index}>
+                  <Cards rec={rec} />
+                </div>
+              );
+            })
+          : show == "alcoholic"
+          ? store.alcoholic.map((rec, index) => {
               return (
                 <div key={index}>
                   <Cards rec={rec} />
