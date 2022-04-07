@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			recipe: [],
 			users: [],
-			loggId: [],
+			loggId: {},
 			favorites: [],
 			shopingList: [],
 		},
@@ -29,9 +29,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ users: newUser });
 			},
 			LogInUsers: (userLogged) => {
-				const log = getStore().loggId;
-				log.push(userLogged)
-				setStore({ loggId: log });
+				// const log = getStore().loggId;
+				// log.push(userLogged)
+				setStore({ loggId: userLogged });
+			},
+			logOut: () => {
+				setStore({ loggId: {} });
 			},
 			addFav: (fav) => {
 

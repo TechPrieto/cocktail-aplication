@@ -15,7 +15,7 @@ export const Cards = ({ rec }) => {
       <div className="card" style={{ minWidth: "18rem", maxWidth: "22rem", minHeight: "16rem", margin: '0.2rem', marginTop: '1.5rem', padding: '10px', boxShadow: '2px 8px 17px #0F0C24' }}>
         <img className="imageHome" src={rec.strDrinkThumb} style={{ width: "100%", height: '12rem', objectFit: "cover" }} />
         <div className="card-body">
-          <h5 className="card-title">{rec.strDrink == undefined?'loading':rec.strDrink}</h5>
+          <h5 className="card-title">{rec.strDrink == undefined ? 'loading' : rec.strDrink}</h5>
           <p className="card-text"></p>
           <p className="card-text">Category: {rec.strCategory}</p>
           <p></p>
@@ -31,19 +31,19 @@ export const Cards = ({ rec }) => {
               </Link>
             </div>
             <div className="col-2">
-              <button
+              <span
                 onClick={() => {
                   actions.addFav(rec);
                   setIcon(!icon)
                 }}
 
               >
-                {icon ? 
-                  <i className="fas fa-heart" ></i>
-                 : 
-                  <i className="far fa-heart"></i>
+                {icon ?
+                  <i className="icon fas fa-heart" ></i>
+                  :
+                  <i className="icon far fa-heart"></i>
                 }
-              </button>
+              </span>
             </div>
           </div>
         </div>

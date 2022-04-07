@@ -199,8 +199,8 @@ body {
   border-radius: 15px;
   margin: auto;
 }
-.fas fa-heart {
-  background: green;
+.icon {
+  color: #c1436d;
 }
 .borderShopping {
   border: 4px solid #0f0c24;
