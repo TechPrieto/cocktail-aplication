@@ -19,7 +19,7 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-Guest_Favorite = db.Table("association",
+Guest_Favorite= db.Table("Guest_Favorite",
     db.Column("user_id", db.Integer, db.ForeignKey("user.id"), primary_key=True),
     db.Column("favorites_id", db.Integer, db.ForeignKey("favorites.id"), primary_key=True)
 )
