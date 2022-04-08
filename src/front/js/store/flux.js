@@ -82,15 +82,35 @@ const getState = ({ getStore, getActions, setStore }) => {
       logOut: () => {
         setStore({ loggId: {} });
       },
-      addFav: (fav) => {
-        //get the store
-        let favorites = getStore().favorites;
-        const found = favorites.find((item) => item == fav);
-        if (found) {
-          favorites = favorites.filter((element) => element !== fav);
-        } else {
-          favorites.push(fav);
+      addFav: async (fav) => {
+        const options = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            drink_id: drink_id,
+            id: id,
+            drink_name: drink_name,
+            user_id: user_id,
+          }),
+        };
+        const response = await fetch(
+          process.env.BACKEND_URL + `/favorite`,
+          options
+        );
+        if (response.status === 200) {
+          const payload = await response.json();
+          setStore({ guest: payload });
+          return payload;
         }
+
+        //get the store
+        // let favorites = getStore().favorites;
+        // const found = favorites.find((item) => item == fav);
+        // if (found) {
+        //   favorites = favorites.filter((element) => element !== fav);
+        // } else {
+        //   favorites.push(fav);
+        // }
         //reset the global store
         setStore({ favorites: favorites });
       },

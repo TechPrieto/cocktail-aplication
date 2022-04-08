@@ -27,7 +27,7 @@ def get_favorite():
 
 @api.route('/favorite', methods=['POST'])
 def post_favorite():
-    body = reques.json
+    body = request.json
 
     favorite = Favorite(drink_id=body['drink_id'], drink_name=body['drink_name'], user_id=body['user_id'] )
     db.session.add(favorite)
@@ -67,7 +67,7 @@ def get_ingredient():
 
 @api.route('/shoppinglist', methods=['POST'])
 def post_ingredient():
-    body = reques.json
+    body = request.json
 
     ingredient = Ingredient(drink_id=body['drink_id'], drink_name=body['drink_name'], ingredient_name=body['ingredient_name'], is_done=body['is_done'] )
     db.session.add(ingredient)
