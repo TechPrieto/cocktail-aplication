@@ -6,7 +6,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    favorite = db.relationship("favorite", secondary=Guest_Favorite)
+    # favorite = db.relationship("favorite", secondary=Guest_Favorite)
     
 
     def __repr__(self):
@@ -19,17 +19,17 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-Guest_Favorite= db.Table("Guest_Favorite",
-    db.Column("user_id", db.Integer, db.ForeignKey("user.id"), primary_key=True),
-    db.Column("favorites_id", db.Integer, db.ForeignKey("favorites.id"), primary_key=True)
-)
+# Guest_Favorite= db.Table("Guest_Favorite"),
+#     db.Column("user_id", db.Integer, db.ForeignKey("user.id"), primary_key=True),
+#     db.Column("favorites_id", db.Integer, db.ForeignKey("favorites.id"), primary_key=True)
+# )
 
 class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     drink_id = db.Column(db.String(120), unique=True, nullable=False)
     drink_name = db.Column(db.String(120), unique=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=False, nullable=False, )
-    user = db.relationship("User", secondary=Guest_Favorite)
+    user = db.relationship("User")
 
     def __repr__(self):
         return f'<Favorite {self.drink_name}>'
@@ -48,7 +48,7 @@ class Favorite(db.Model):
 
 class   Ingredient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    drink_id = db.Column(db.String(120), unique=True, nullable=False)
+    drink_id = db.Column(db.String(120), unique=False, nullable=False)
     drink_name = db.Column(db.String(120), unique=False, nullable=False)
     ingredient_name = db.Column(db.String(120), unique=False, nullable=False)
     is_done = db.Column(db.Boolean(), unique=False, nullable=False)
