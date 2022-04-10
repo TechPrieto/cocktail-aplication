@@ -115,7 +115,9 @@ export const Information = ({ rec }) => {
                 {ingredientes.map((ing, index) => {
                   return (
                     <li className="list-group-item" key={index}>
-                      {ing}: {medidas[index]}
+                      <strong>{ing}</strong>
+                      <span>: </span>
+                      {medidas[index] ? medidas[index] : "As desired"}
                     </li>
                   );
                 })}

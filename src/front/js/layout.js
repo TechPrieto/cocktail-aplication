@@ -15,6 +15,7 @@ import { Information } from "./pages/information";
 import { Bussines } from "./pages/bussines";
 import { ShoppingList } from "./pages/shoppingList";
 import { Contacts } from "./pages/contacts";
+import { Favorite } from "./pages/favorite";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -57,6 +58,7 @@ const Layout = () => {
             <Route exact path="/shoppinglist/" component={ShoppingList} />
             <Route exact path="/bussines" component={Bussines} />
             <Route exact path="/contacts" component={Contacts} />
+            <Route exact path="/favorite" component={Favorite} />
             <Route>
               <h1>Not found!</h1>
             </Route>

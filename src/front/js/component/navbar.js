@@ -33,6 +33,7 @@ export const Navbar = () => {
 										<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 											{store.favorites.map((fav, i) => {
 												return (
+
 													<li key={i}>
 														<Link to={{ pathname: "information/" + fav.strDrink, state: fav }}>{fav.strDrink}</Link>
 														<i
@@ -42,6 +43,9 @@ export const Navbar = () => {
 													</li>
 												);
 											})}
+											<Link to="/favorite"><li>
+												see fav
+											</li></Link>
 										</ul>
 									</li>
 								</ul>}
