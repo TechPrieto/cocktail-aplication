@@ -17,32 +17,33 @@ export const Favorite = ({ data }) => {
   };
 
   return (
-    <div className="d-fex">
-      {store.favorites.map((fav, i) => {
+    <div className="d-flex flex-wrap justify-content-center">
+      {
+        store.favorites.map((fav, i) => {
 
-        return (
-          <div key={i} className="border border-black">
-            <Link to={{ pathname: "information/" + fav.strDrink, state: fav }} className="text-decoration-none">
-              <div>
-                <img className="imageHome" src={fav.strDrinkThumb} style={{ width: "200px", height: 'auto', objectFit: "cover" }} />
-                <div className="text-center">
+          return (
+            <div key={i} className="card d-flex flex-wrap justify-content-center m-4" style={{ minWidth: "18rem", maxWidth: "22rem", minHeight: "16rem", margin: '0.2rem', marginTop: '1.5rem', padding: '10px', boxShadow: '2px 8px 17px #0F0C24' }}>
+              <Link to={{ pathname: "information/" + fav.strDrink, state: fav }} className="text-decoration-none">
+                <div className="">
+                  <img className="imageHome rounded mx-auto d-block" src={fav.strDrinkThumb} style={{ width: "200px", height: 'auto', objectFit: "cover" }} />
+                  <div className="text-white text-center">
 
-                  <h1>{fav.strDrink}</h1>
-                  <p className="card-text">Category: {fav.strCategory}</p>
-                  <p className="card-text">Alcoholic: {fav.strAlcoholic}</p>
-                  <p className="card-text">Glass Type: {fav.strGlass}</p>
+                    <h1>{fav.strDrink}</h1>
+                    <p className="card-text">Category: {fav.strCategory}</p>
+                    <p className="card-text">Alcoholic: {fav.strAlcoholic}</p>
+                    <p className="card-text">Glass Type: {fav.strGlass}</p>
+                  </div>
                 </div>
-                <i
-                  className="fas fa-trash-alt m-2"
-                  onClick={() => actions.deleteFav(fav)}
-                ></i>
-              </div>
-            </Link>
+              </Link>
+              <button className="button" style={{ width: "auto", height: "auto", margin: "10px" }}
+                onClick={() => actions.deleteFav(fav)}
+              >delete</button>
 
-          </div>
-        );
-      })}
-    </div>
+            </div>
+          );
+        })
+      }
+    </div >
   );
 };
 

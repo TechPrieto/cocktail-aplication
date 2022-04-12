@@ -86,7 +86,7 @@ export const Information = ({ rec }) => {
 
   return (
     <div className="container-fluid mt-3">
-      <div className="card1 mb-3" style={{ maxWidth: "1100px" }}>
+      <div className="card1 mb-3" style={{ maxWidth: "1100px", boxShadow: '2px 8px 17px #0F0C24' }}>
         <div className="row g-0">
           <div className="col-md-4">
             <img
@@ -106,8 +106,8 @@ export const Information = ({ rec }) => {
                 {language == "italian"
                   ? rec.strInstructionsIT
                   : language == "german"
-                  ? rec.strInstructionsDE
-                  : rec.strInstructions}
+                    ? rec.strInstructionsDE
+                    : rec.strInstructions}
               </p>
               <h3>Ingredients</h3>
 
@@ -212,22 +212,18 @@ export const Information = ({ rec }) => {
             actions.addToShopingList(rec);
             setColorButton("button");
           }}
+          style={{ width: "auto", height: "auto", margin: "10px" }}
         >
           Add to Shopping List
         </button>
-        <Link to="/">
-          <button className="button d-flex justify-content-between m-1">
-            Back to Home
-          </button>
-        </Link>
-        <Link to="/recipeBrowser">
-          <button className="button d-flex justify-content-between m-1">
-            Search More Drinks
-          </button>
-        </Link>
         <Link to="/shopinglist">
-          <button className="button d-flex justify-content-between m-1">
+          <button className={colorButton == "buttonList" ? "button" : "buttonList"} style={{ width: "auto", height: "auto", margin: "10px" }}>
             Check Your Shopping List
+          </button>
+        </Link>
+        <Link to="/recipeBrowser" className="text-decoration-none">
+          <button className="button " style={{ width: "auto", height: "auto", margin: "10px" }}>
+            Search More Drinks!
           </button>
         </Link>
         {/* <input type='number' value='number' className="rounded-3" style={{ width: '5rem' }} ></input> */}
