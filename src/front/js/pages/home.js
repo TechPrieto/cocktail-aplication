@@ -35,7 +35,7 @@ export const Home = () => (
 
 
 
-		<div className="d-flex row ">
+		<div className="d-flex justify-content-center align-items-center row">
 
 			<Link to="/randomDrink" className="col-sm-12 col-lg-4 text-decoration-none">
 				<div className="card3 boxBussines col-sm-12 col-lg-4 container border rounded mt-4 mb-4 joshstyles2 random-drink  text-center" style={{ width: '400px', height: 'auto', boxShadow: '1px 4px 19px #0F0C22' }}>
