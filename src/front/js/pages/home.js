@@ -35,14 +35,14 @@ export const Home = () => (
 
 
 
-		<div className="d-flex row">
+		<div className="d-flex row ">
 
 			<Link to="/randomDrink" className="col-sm-12 col-lg-4 text-decoration-none">
 				<div className="card3 boxBussines col-sm-12 col-lg-4 container border rounded mt-4 mb-4 joshstyles2 random-drink  text-center" style={{ width: '400px', height: 'auto', boxShadow: '1px 4px 19px #0F0C22' }}>
 					<img src={rigoImage5} style={{ width: '250px', height: 'auto' }} />
 					<h2 className="left text-center mb-3" style={{ color: '#0F0C24' }}>Random drink!</h2>
 
-					<p className="left text-center" style={{ color: '#0F0C24' }}> let us chose an amazing Drink for you!</p>
+					<p className="left text-center" style={{ color: '#0F0C24' }}> Let us chose an amazing Drink for you!</p>
 					<Link to="/randomDrink">
 						<button className="button text-center m-2 mt-5" style={{ backgroundColor: '#C1436D', border: 'none' }}>Get a Random Drink</button>
 					</Link>
@@ -69,7 +69,7 @@ export const Home = () => (
 				<img src={rigoImage6} style={{ width: '250px', height: 'auto' }} />
 				<h2 className="left text-center  mb-3" style={{ color: '#0F0C24' }}>make a list here!</h2>
 
-				<p className="left text-center" style={{ color: '#0F0C24' }}>and get ready for friday night</p>
+				<p className="left text-center" style={{ color: '#0F0C24' }}>Get ready for friday night</p>
 				<Link to="/shoppinglist">
 					<button className="button text-center m-2 mt-5" style={{ backgroundColor: '#C1436D', border: 'none' }}>Lest do this!</button>
 				</Link>
