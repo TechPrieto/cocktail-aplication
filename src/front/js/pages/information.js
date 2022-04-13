@@ -104,7 +104,7 @@ export const Information = ({ rec }) => {
               <h5 class="card-title border-bottom border-dark">
                 {rec.strDrink}
               </h5>
-              <p class="card-text border-bottom border-dark">
+              <p className="card-text border-bottom border-dark">
                 Instructions:{" "}
                 {language == "italian"
                   ? rec.strInstructionsIT

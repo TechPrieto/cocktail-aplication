@@ -113,6 +113,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       addToShopingList: (drinkID, drinkName, ingredients) => {
         //get the store
+        let ingredientString = ingredients.toString();
+        console.log("flux", ingredientString);
         fetch(
           "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist",
           {
@@ -123,7 +125,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             body: JSON.stringify({
               drink_id: drinkID, // Use your own property name / key
               drink_name: drinkName,
-              ingredient_name: ingredients,
+              ingredient_name: ingredientString,
               is_done: false,
             }),
           }
