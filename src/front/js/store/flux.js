@@ -93,7 +93,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         // reset the global store
         setStore({ favorites: favorites });
-
       },
 
       deleteFav: (fav) => {
@@ -102,14 +101,36 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ favorites: delet });
       },
 
-      addToShopingList: (list) => {
-        //get the store
-        const newList = getStore().shopingList;
-        console.log(newList);
-        newList.push(list);
+      // addToShopingList: (list) => {
+      //   //get the store
+      //   const newList = getStore().shopingList;
+      //   console.log(newList);
+      //   newList.push(list);
 
-        //reset the global store
-        setStore({ shopingList: newList });
+      //   //reset the global store
+      //   setStore({ shopingList: newList });
+      // },
+
+      addToShopingList: (drinkID, drinkName, ingredients) => {
+        //get the store
+        fetch(
+          "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              drink_id: drinkID, // Use your own property name / key
+              drink_name: drinkName,
+              ingredient_name: ingredients,
+              is_done: false,
+            }),
+          }
+        );
+        // .then((res) => res.json())
+        // .then((result) => setTaskList(result))
+        // .catch((err) => console.log(err));
       },
 
       deleteList: (list) => {

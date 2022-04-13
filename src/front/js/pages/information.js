@@ -19,16 +19,16 @@ export const Information = ({ rec }) => {
   const [colorButton, setColorButton] = useState("buttonList");
   const params = useParams();
 
-  const drinkArray = [];
+  const drinkObjArray = [];
 
   for (const key in rec) {
-    if (rec[key] != null) drinkArray.push({ [key]: rec[key] });
+    if (rec[key] != null) drinkObjArray.push({ [key]: rec[key] });
   }
-  console.log("What it is this", drinkArray);
+  console.log("What it is this", drinkObjArray);
 
   let ingredientes = [];
 
-  drinkArray.forEach((item) => {
+  drinkObjArray.forEach((item) => {
     for (let key in item) {
       if (key.includes("Ingredient") && item[key] != null) {
         ingredientes.push(item[key]);
@@ -40,7 +40,7 @@ export const Information = ({ rec }) => {
 
   let medidas = [];
 
-  drinkArray.forEach((item) => {
+  drinkObjArray.forEach((item) => {
     for (let key in item) {
       if (key.includes("Measure") && item[key] != null) {
         medidas.push(item[key]);
@@ -86,7 +86,10 @@ export const Information = ({ rec }) => {
 
   return (
     <div className="container-fluid mt-3">
-      <div className="card1 mb-3" style={{ maxWidth: "1100px", boxShadow: '2px 8px 17px #0F0C24' }}>
+      <div
+        className="card1 mb-3"
+        style={{ maxWidth: "1100px", boxShadow: "2px 8px 17px #0F0C24" }}
+      >
         <div className="row g-0">
           <div className="col-md-4">
             <img
@@ -106,8 +109,8 @@ export const Information = ({ rec }) => {
                 {language == "italian"
                   ? rec.strInstructionsIT
                   : language == "german"
-                    ? rec.strInstructionsDE
-                    : rec.strInstructions}
+                  ? rec.strInstructionsDE
+                  : rec.strInstructions}
               </p>
               <h3>Ingredients</h3>
 
@@ -122,37 +125,6 @@ export const Information = ({ rec }) => {
                   );
                 })}
               </ul>
-
-              {/* <p className="card-text">
-                <strong>{rec.strIngredient1} </strong> {rec.strMeasure1}:
-              </p>
-              <p className="card-text">
-                {" "}
-                <strong>{rec.strIngredient2} </strong> {rec.strMeasure2}
-              </p>
-              <p className="card-text">
-                {" "}
-                <strong>{rec.strIngredient3} </strong> {rec.strMeasure3}{" "}
-              </p>
-              <p className="empty card-text">
-                <strong>{rec.strIngredient4}</strong> {rec.strMeasure4}
-              </p>
-              <p className="empty card-text">
-                {" "}
-                <strong>{rec.strIngredient5}</strong> {rec.strMeasure5}
-              </p>
-              <p className="empty card-text">
-                {" "}
-                <strong>{rec.strIngredient6}</strong> {rec.strMeasure6}
-              </p>
-              <p className="empty card-text">
-                {" "}
-                <strong>{rec.strIngredient7}</strong> {rec.strMeasure7}
-              </p>
-              <p className="emptycard-text">
-                {" "}
-                <strong>{rec.strIngredient8}</strong> {rec.strMeasure8}
-              </p> */}
             </div>
 
             <div className="d-flex justify-content-end">
@@ -209,7 +181,7 @@ export const Information = ({ rec }) => {
         <button
           className={colorButton == "buttonList" ? "button" : "buttonList"}
           onClick={function () {
-            actions.addToShopingList(rec);
+            actions.addToShopingList(rec.idDrink, rec.strDrink, ingredientes);
             setColorButton("button");
           }}
           style={{ width: "auto", height: "auto", margin: "10px" }}
@@ -217,12 +189,18 @@ export const Information = ({ rec }) => {
           Add to Shopping List
         </button>
         <Link to="/shopinglist">
-          <button className={colorButton == "buttonList" ? "button" : "buttonList"} style={{ width: "auto", height: "auto", margin: "10px" }}>
+          <button
+            className={colorButton == "buttonList" ? "button" : "buttonList"}
+            style={{ width: "auto", height: "auto", margin: "10px" }}
+          >
             Check Your Shopping List
           </button>
         </Link>
         <Link to="/recipeBrowser" className="text-decoration-none">
-          <button className="button " style={{ width: "auto", height: "auto", margin: "10px" }}>
+          <button
+            className="button "
+            style={{ width: "auto", height: "auto", margin: "10px" }}
+          >
             Search More Drinks!
           </button>
         </Link>
