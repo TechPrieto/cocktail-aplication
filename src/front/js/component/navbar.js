@@ -79,7 +79,7 @@ export const Navbar = () => {
                     onClick={() => actions.logOut()}
                     style={{ color: "#0F0C24" }}
                   >
-                    LogOut
+                    Log out
                   </h5>
                 ) : (
                   <Link to="/signin" className="logo">
@@ -99,20 +99,20 @@ export const Navbar = () => {
 
 {
   /* <div className="col-4">
-	<Link to="/">
-		<h6 className="m-3">Cheers & Share</h6>
-	</Link>
+  <Link to="/">
+    <h6 className="m-3">Cheers & Share</h6>
+  </Link>
 </div>
 <div className="d-flex col-8 justify-content-end">
 
-	<nav className="navbar m-2">
-		<Link to="/register">
-				<button className="button m-2">Register</button>
-		</Link>
-		<Link to="/signin">
-				<button className="button m-2">Login</button>
-		</Link>
-		
-	</nav>
+  <nav className="navbar m-2">
+    <Link to="/register">
+        <button className="button m-2">Register</button>
+    </Link>
+    <Link to="/signin">
+        <button className="button m-2">Login</button>
+    </Link>
+  	
+  </nav>
 </div> */
 }
