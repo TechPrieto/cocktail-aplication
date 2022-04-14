@@ -16,10 +16,10 @@ export const Home = () => (
 				<p className="left text-center">The Drink Link users will be able to search for many drink recipes by liqour type, drink style, and ingredient count. We also proudly offer our registered users the ability to save recipes for later, generate a shopping list based on chosen recipes, and access to bartending tips and tricks. Sign up today!</p>
 				<div className="d-grid gap-2 d-flex justify-content-center ">
 					<Link to="/recipeBrowser">
-						<button className="button text-center" style={{ backgroundColor: '#C1436D', border: 'none' }}>Recipe Browser</button>
+						<button className="button text-center" >Recipe Browser</button>
 					</Link>
 
-					<a href='#drinks' className="button text-center text-decoration-none" style={{ backgroundColor: '#C1436D', border: 'none' }}>Popular cocktails</a>
+					<a href='#drinks' className="button text-center text-decoration-none" >Popular cocktails</a>
 
 				</div>
 			</div>

@@ -37,7 +37,7 @@ body {
   background-color: #c1436d;
   color: white;
   box-shadow: 0 0 5px #c1436d, 0 0 20px rgb(255, 0, 119),
-    0 0 35px rgb(255, 0, 119), 0 0 50px rgb(255, 0, 119);
+    0 0 35px rgb(255, 0, 119);
   border-color: #c1436d;
 }
 
