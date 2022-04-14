@@ -79,7 +79,7 @@ export const Navbar = () => {
                     onClick={() => actions.logOut()}
                     style={{ color: "#0F0C24" }}
                   >
-                    Log out
+                    Logout
                   </h5>
                 ) : (
                   <Link to="/signin" className="logo">
