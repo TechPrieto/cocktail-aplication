@@ -78,7 +78,7 @@ def post_ingredient():
 
     return jsonify(all_ingredients), 200
 
-@api.route('/shoppinglist', methods=['PUT'])
+@api.route('/shoppinglist/<int:id>', methods=['PUT'])
 def edit_ingredient():
 
     body = request.get_json()
@@ -87,12 +87,12 @@ def edit_ingredient():
     if ingredient_id is None:
         raise APIException('Ingredient no found', status_code=404)
 
-    if "drink_id" in body:
-        ingredient_id.drink_id = body["drink_id"]
-    if "drink_name" in body:
-        ingredient_id.drink_name = body["drink_name"]
-    if "ingredient_name" in body:
-        ingredient_id.ingredient_name = body["ingredient_name"]
+    # if "drink_id" in body:
+    #     ingredient_id.drink_id = body["drink_id"]
+    # if "drink_name" in body:
+    #     ingredient_id.drink_name = body["drink_name"]
+    # if "ingredient_name" in body:
+    #     ingredient_id.ingredient_name = body["ingredient_name"]
     if "is_done" in body:
         ingredient_id.is_done = body["is_done"]
         db.session.commit()

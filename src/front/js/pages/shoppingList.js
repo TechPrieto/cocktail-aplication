@@ -43,24 +43,25 @@ export const ShoppingList = ({ nose }) => {
 
   return (
     <div className="title text-center">
-      <h1>Your Shopping List</h1>
+      <h1 className="title text-center mt-5">Your Shopping List</h1>
+      <p></p>
 
       {list.length > 0 &&
         list.map((item, i) => {
           return (
-            <div className="container">
-              <div className="borderShopping m-5">
-                <table>
-                  <buttom
-                    className="button"
-                    onClick={() => actions.deleteList(list)}
-                  >
-                    delete recipe
-                  </buttom>
+            <div className="container table-container">
+              <div className="borderShopping m-5 list-group-item">
+                <table className="table table-sm ">
                   <thead>
                     <tr>
                       <th className="text-center border-bottom border-dark w-100 ms-1">
-                        <h3 key={i}>{item.strDrink}</h3>
+                        <h3 key={i}>{item.drink_name}</h3>
+                        <buttom
+                          className="button my-2"
+                          onClick={() => actions.deleteShoppingList(item.id)}
+                        >
+                          Delete recipe
+                        </buttom>
                       </th>
                     </tr>
                   </thead>
@@ -84,6 +85,7 @@ export const ShoppingList = ({ nose }) => {
                                   name={ingredient}
                                   value={ingredient}
                                   onChange={handleChange}
+                                  // onClick={actions.editShoppingList(item)}
                                 />
                               </td>
                             </tr>
@@ -91,28 +93,18 @@ export const ShoppingList = ({ nose }) => {
                         })}
                   </tbody>
                 </table>
-
-                {/* <h3  >{item.strDrink}</h3> */}
-                {/* <ul>
-                                                    {item.strIngredient1 ? <li>{item.strIngredient1}<input type="checkbox" /></li>: <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient2 ? <li>{item.strIngredient2}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient3 ? <li>{item.strIngredient3}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient4 ? <li>{item.strIngredient4}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient5 ? <li>{item.strIngredient5}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient6 ? <li>{item.strIngredient6}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient7 ? <li>{item.strIngredient7}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient8 ? <li>{item.strIngredient8}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient9 ? <li>{item.strIngredient9}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient10 ? <li>{item.strIngredient10}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient11 ? <li>{item.strIngredient11}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient12 ? <li>{item.strIngredient12}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient13 ? <li>{item.strIngredient13}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                    {item.strIngredient14 ? <li>{item.strIngredient14}</li> : <li style={{display:"none"}}>Hello</li>}
-                                                </ul> */}
               </div>
             </div>
           );
         })}
+      <Link to="/recipeBrowser" className="text-decoration-none">
+        <button
+          className="button "
+          style={{ width: "auto", height: "auto", margin: "10px" }}
+        >
+          Search More Drinks!
+        </button>
+      </Link>
     </div>
   );
 };

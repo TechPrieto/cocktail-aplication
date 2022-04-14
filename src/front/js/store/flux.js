@@ -111,6 +111,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       //   setStore({ shopingList: newList });
       // },
 
+      getfetchData: () => {
+        fetch(
+          "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist"
+        )
+          .then((response) => response.json())
+          .then((data) => setList(data))
+          .catch((err) => console.log(err));
+      },
+
       addToShopingList: (drinkID, drinkName, ingredients) => {
         //get the store
         let ingredientString = ingredients.toString();
@@ -135,11 +144,47 @@ const getState = ({ getStore, getActions, setStore }) => {
         // .catch((err) => console.log(err));
       },
 
-      deleteList: (list) => {
-        var deleteList = getStore().shopingList;
-        let delet = deleteList.filter((element) => element !== list);
-        setStore({ shopingList: delet });
+      // deleteList: (list) => {
+      //   var deleteList = getStore().shopingList;
+      //   let delet = deleteList.filter((element) => element !== list);
+      //   setStore({ shopingList: delet });
+      // },
+
+      deleteShoppingList: (id) => {
+        fetch(
+          "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist/" +
+            id,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then(() => {
+            getActions().getfetchData();
+          });
       },
+      // editShoppingList: (item) => {
+      //   console.log("rayos y peos", item);
+      //   item.is_done = !item.is_done;
+
+      //   fetch(
+      //     "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist/" +
+      //       item.id,
+      //     {
+      //       method: "PUT",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify(item),
+      //     }
+      //   );
+      //   // .then((res) => res.json())
+      //   // .then((result) => setTaskList(result))
+      //   // .catch((err) => console.log(err));
+      // },
     },
   };
 };
