@@ -37,7 +37,7 @@ export const Home = () => (
 
 		<div className="d-flex justify-content-center align-items-center row">
 
-			<Link to="/randomDrink" className="col-sm-12 col-lg-4 text-decoration-none">
+			<Link to="/randomDrink" className="col-sm-12 col-lg-4 text-decoration-none p-0">
 				<div className="card3 boxBussines col-sm-12 col-lg-4 container border rounded mt-4 mb-4 joshstyles2 random-drink  text-center" style={{ width: '400px', height: 'auto', boxShadow: '1px 4px 19px #0F0C22' }}>
 					<img src={rigoImage5} style={{ width: '250px', height: 'auto' }} />
 					<h2 className="left text-center mb-3" style={{ color: '#0F0C24' }}>Random drink!</h2>
@@ -52,7 +52,7 @@ export const Home = () => (
 
 
 
-			<Link to="/bussines" className="col-sm-12 col-lg-4 text-decoration-none">
+			<Link to="/bussines" className="col-sm-12 col-lg-4 text-decoration-none p-0">
 				<div className="card3 boxBussines col-sm-12 col-lg-4 container border rounded mt-4 mb-4 joshstyles2 col-12 text-center" style={{ width: '400px', height: 'auto', boxShadow: '1px 4px 19px #0F0C22' }}>
 					<img src={rigoImage7} style={{ width: '250px', height: 'auto' }} className="" />
 					<h2 className="left text-center mb-3" style={{ color: '#0F0C24' }}>Bussines consulting</h2>
@@ -65,7 +65,7 @@ export const Home = () => (
 			</Link>
 
 
-			<Link to="/bussines" className="col-sm-12 col-lg-4 text-decoration-none"><div className="card3 boxBussines col-sm-12 col-lg-4 container border rounded mt-4 mb-4 joshstyles2 random-drink col-12 text-center" style={{ width: '400px', height: 'auto', boxShadow: '1px 4px 19px #0F0C22' }}>
+			<Link to="/bussines" className="col-sm-12 col-lg-4 text-decoration-none p-0"><div className="card3 boxBussines col-sm-12 col-lg-4 container border rounded mt-4 mb-4 joshstyles2 random-drink col-12 text-center" style={{ width: '400px', height: 'auto', boxShadow: '1px 4px 19px #0F0C22' }}>
 				<img src={rigoImage6} style={{ width: '250px', height: 'auto' }} />
 				<h2 className="left text-center  mb-3" style={{ color: '#0F0C24' }}>make a list here!</h2>
 
