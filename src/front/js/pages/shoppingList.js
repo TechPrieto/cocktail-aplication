@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
-import { FullCards } from "./fullCards";
-import { Cards } from "./cards";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const ShoppingList = ({ nose }) => {
@@ -30,14 +28,6 @@ export const ShoppingList = ({ nose }) => {
     }
     getfetchData();
   }, []);
-
-  // console.log("One To do", list[0]);
-
-  // const names = list.map((drink) => {
-  //   return drink.drink_name;
-  // });
-
-  // console.log(names); // ['John', 'Wayne', 'David']
 
   return (
     <div className="title text-center">
@@ -83,7 +73,6 @@ export const ShoppingList = ({ nose }) => {
                                   name={ingredient}
                                   value={ingredient}
                                   onChange={handleChange}
-                                  // onClick={actions.editShoppingList(item)}
                                 />
                               </td>
                             </tr>
