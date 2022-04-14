@@ -20,7 +20,7 @@ export const SignIn = () => {
 	return (
 		<div>
 			<div>
-				<h1 className="text-dark text-center">Log in</h1>
+				<h1 className="text-dark text-center">Login</h1>
 			</div>
 			<div className="container border rounded border-danger bg-dark mt-4 mb-4 joshstyles" style={{ maxWidth: '450px', height: 'auto' }}>
 				<div>

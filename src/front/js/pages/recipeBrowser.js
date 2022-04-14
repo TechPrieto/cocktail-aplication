@@ -26,14 +26,14 @@ export const RecipeBrowser = ({ data }) => {
           <form onSubmit={onSubmit} className="input-group mb-3 mt-3">
             <div className="dropdown m-2">
               <a
-                className="button dropdown-toggle"
+                className="button dropdown-toggle text-decoration-none"
                 href="#"
                 role="button"
                 id="dropdownMenuLink"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown link
+                Filters
               </a>
 
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -93,29 +93,29 @@ export const RecipeBrowser = ({ data }) => {
       <div className="container d-flex flex-wrap justify-content-center">
         {show == "recipes"
           ? store.recipes.map((rec, index) => {
-              return (
-                <div key={index}>
-                  <Cards rec={rec} />
-                </div>
-              );
-            })
+            return (
+              <div key={index}>
+                <Cards rec={rec} />
+              </div>
+            );
+          })
           : show == "nonAlcoholic"
-          ? store.nonAlcoholic.map((rec, index) => {
+            ? store.nonAlcoholic.map((rec, index) => {
               return (
                 <div key={index}>
                   <Cards rec={rec} />
                 </div>
               );
             })
-          : show == "alcoholic"
-          ? store.alcoholic.map((rec, index) => {
-              return (
-                <div key={index}>
-                  <Cards rec={rec} />
-                </div>
-              );
-            })
-          : null}
+            : show == "alcoholic"
+              ? store.alcoholic.map((rec, index) => {
+                return (
+                  <div key={index}>
+                    <Cards rec={rec} />
+                  </div>
+                );
+              })
+              : null}
       </div>
     </div>
   );
