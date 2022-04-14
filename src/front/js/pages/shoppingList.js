@@ -10,7 +10,6 @@ export const ShoppingList = ({ nose }) => {
   const [checked, setChecked] = useState(false);
   const [list, setList] = useState(false);
   const [ingredientList, setIngredientList] = useState([]);
-  console.log("checkcheck", checked);
 
   const handleChange = (event) => {
     setChecked({ ...checked, [event.target.name]: event.target.checked });
@@ -28,11 +27,10 @@ export const ShoppingList = ({ nose }) => {
 
   useEffect(() => {
     if (list == null || undefined) {
-      console.log("this is the list", list);
     }
     getfetchData();
   }, []);
-  console.log("this is the list", list);
+
   // console.log("One To do", list[0]);
 
   // const names = list.map((drink) => {

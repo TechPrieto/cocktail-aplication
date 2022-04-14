@@ -111,14 +111,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       //   setStore({ shopingList: newList });
       // },
 
-      getfetchData: () => {
-        fetch(
-          "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist"
-        )
-          .then((response) => response.json())
-          .then((data) => setList(data))
-          .catch((err) => console.log(err));
-      },
+      // getfetchData: () => {
+      //   fetch(
+      //     "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist"
+      //   )
+      //     .then((response) => response.json())
+      //     .then((data) => setStore([{ shopingList: data }]))
+      //     .catch((err) => console.log(err));
+      // },
 
       addToShopingList: (drinkID, drinkName, ingredients) => {
         //get the store
