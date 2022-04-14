@@ -24,9 +24,12 @@ export const Contacts = () => {
 					</div>
 
 					<div className="m-5" >
-						<div class="form-floating">
-							<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{ width: '250px', height: '100px' }}></textarea>
+						<div className="">
+							<textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{ width: '250px', height: '100px' }} ></textarea>
 						</div>
+					</div>
+					<div>
+						<button className="button mx-5">Submit</button>
 					</div>
 				</div>
 			</div>
