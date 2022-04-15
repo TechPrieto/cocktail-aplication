@@ -10,7 +10,6 @@ import { element } from "prop-types";
 
 export const Information = ({ rec }) => {
   var rec = useLocation().state;
-  console.log("estos es:", rec);
   const { store, actions } = useContext(Context);
   const [language, setLanguage] = useState("");
   const [ingredients, setingredients] = useState("");
@@ -24,7 +23,6 @@ export const Information = ({ rec }) => {
   for (const key in rec) {
     if (rec[key] != null) drinkObjArray.push({ [key]: rec[key] });
   }
-  console.log("What it is this", drinkObjArray);
 
   let ingredientes = [];
 
@@ -36,8 +34,6 @@ export const Information = ({ rec }) => {
     }
   });
 
-  console.log("Working?", ingredientes);
-
   let medidas = [];
 
   drinkObjArray.forEach((item) => {
@@ -48,41 +44,19 @@ export const Information = ({ rec }) => {
     }
   });
 
-  console.log("Working?", medidas);
-
-  // const filtered = drinkArray.filter((element) =>  element.);
-
-  // console.log("Filtrado:", filtered);
-
-  // const arr = Object.keys(rec);
-  // const arrObj = arr.map((key) => {
-  //   return { [key]: rec[key] };
+  // store.shoppingList.forEach((item) => {
+  //   if (rec.idDrink != item.drink_id) {
+  //     alert("Haz lo tuyo");
+  //   } else {
+  //     console.log("Esa bebida ya existe");
+  //   }
   // });
-  // console.log("work?:", arrObj);
 
-  // const filtered = arrObj.filter(
-  //   (element) =>
-  //     element.strIngredient4 !== null &&
-  //     element.strIngredient5 !== null &&
-  //     element.strIngredient6 !== null
+  // const ingIds = store.shoppingList.filter(
+  //   (item) => item.drink_id === rec.idDrink
   // );
 
-  // console.log("its filter?:", filtered);
-
-  // // Use `map` to get a new array with new objects
-  // var filledProps = arrObj.map((el) => {
-  //   // Loop the property names of `el`, creating a new object
-  //   // with the ones whose values aren't `null`.
-  //   // `reduce` is commonly used for doing this:
-  //   return Object.keys(el).reduce((newObj, key) => {
-  //     const value = el[key];
-  //     if (value !== null) {
-  //       newObj[key] = value;
-  //     }
-  //     return newObj;
-  //   }, {});
-  // });
-  // console.log(filledProps);
+  // console.log("lalalala", ingIds);
 
   return (
     <div className="container-fluid mt-3">

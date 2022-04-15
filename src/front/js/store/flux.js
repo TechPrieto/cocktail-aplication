@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       users: [],
       loggId: {},
       favorites: [],
-      shopingList: [],
+      shoppingList: [],
     },
     actions: {
       // getData: (recipe)=>{
@@ -101,6 +101,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ favorites: delet });
       },
 
+      //Metodo para actualizar el store...
+
       // addToShopingList: (list) => {
       //   //get the store
       //   const newList = getStore().shopingList;
@@ -109,82 +111,56 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       //   //reset the global store
       //   setStore({ shopingList: newList });
+
       // },
 
-      // getfetchData: () => {
-      //   fetch(
-      //     "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist"
-      //   )
-      //     .then((response) => response.json())
-      //     .then((data) => setStore([{ shopingList: data }]))
-      //     .catch((err) => console.log(err));
-      // },
+      //###############ShopingList Here#######################
+
+      getShoppingListData: () => {
+        fetch(process.env.BACKEND_URL + "/api/shoppinglist")
+          .then((response) => response.json())
+          .then((data) => setStore({ shoppingList: data }))
+          .catch((err) => console.log(err));
+      },
 
       addToShopingList: (drinkID, drinkName, ingredients) => {
-        //get the store
-        let ingredientString = ingredients.toString();
-        console.log("flux", ingredientString);
-        fetch(
-          "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist",
-          {
+        let storeShoppingList = getStore().shoppingList;
+        const found = storeShoppingList.find(
+          (item) => item.drink_id == drinkID
+        );
+        if (found) {
+          alert("That drink exist");
+        } else {
+          let ingredientString = ingredients.toString();
+          fetch(process.env.BACKEND_URL + "/api/shoppinglist", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              drink_id: drinkID, // Use your own property name / key
+              drink_id: drinkID,
               drink_name: drinkName,
               ingredient_name: ingredientString,
               is_done: false,
             }),
-          }
-        );
-        // .then((res) => res.json())
-        // .then((result) => setTaskList(result))
-        // .catch((err) => console.log(err));
+          })
+            .then((response) => response.json())
+            .then((data) => setStore({ shoppingList: data }))
+            .catch((err) => console.log(err));
+        }
       },
-
-      // deleteList: (list) => {
-      //   var deleteList = getStore().shopingList;
-      //   let delet = deleteList.filter((element) => element !== list);
-      //   setStore({ shopingList: delet });
-      // },
 
       deleteShoppingList: (id) => {
-        fetch(
-          "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist/" +
-            id,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
+        fetch(process.env.BACKEND_URL + "/api/shoppinglist/" + id, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
           .then((response) => response.json())
-          .then(() => {
-            getActions().getfetchData();
-          });
+          .then((data) => setStore({ shoppingList: data }))
+          .catch((err) => console.log(err));
       },
-      // editShoppingList: (item) => {
-      //   console.log("rayos y peos", item);
-      //   item.is_done = !item.is_done;
-
-      //   fetch(
-      //     "https://3001-prietobyte-cocktailaplic-hee7kwsvxwf.ws-us39a.gitpod.io/api/shoppinglist/" +
-      //       item.id,
-      //     {
-      //       method: "PUT",
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //       },
-      //       body: JSON.stringify(item),
-      //     }
-      //   );
-      //   // .then((res) => res.json())
-      //   // .then((result) => setTaskList(result))
-      //   // .catch((err) => console.log(err));
-      // },
     },
   };
 };
